@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NinetyNineCats</title>
+</head>
+<body>
+<p>
+<% if current_user %>
+  <%= "Hello #{current_user.user_name}" %>
+  <form action="<%= session_url %>" method="POST">
+    <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <%= link_to "Rent a Cat!", new_cat_rental_request_url %>
+      <button>Logout</button>
+  </form>
+<% else %>
+  <a href="<%= new_session_url %>">Log In</a> or
+  <%= link_to "Register", new_user_url %>
+<% end %>
+
+</p>
+
+<%= yield %>
+<% if current_user %>
+<table border="1">
+  <caption>Logged In Sessions</caption>
+  <thead>
+    <th>Device
+    <th>Browser
+    <th>IP
+    <th>
+  </thead>
+  <% current_user.session_tokens.each do |session| %>
+  <tr>
+    <td><%= session.device %>
+    <td><%= session.browser %>
+    <td><%= session.ip %>
+    <td><%   
+  </tr>
+  <% end %>
+</table>
+<br>
+<% end %>
+</body>
+</html>

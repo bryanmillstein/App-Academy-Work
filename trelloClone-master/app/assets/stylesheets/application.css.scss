@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.ui.all
+ *= require_tree .
+ */
+
+
+@import "font-awesome";
+
+/* PHASE 0: Reset */
+
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.board-show {
+  width: 900px;
+}
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.lists {
+  position: relative;
+  float: left;
+}
+
+.list {
+  display: block;
+  background: blue;
+  float: left;
+  padding: 25px;
+  margin: 5px;
+  height: 300px;
+  width: 250px;
+}
+
+.card {
+  background: gray;
+  margin: 5px;
+  height: 25px;
+  width: 200px;
+  color: white;
+
+}
+
+.delete-card {
+  display: none;
+
+}
+
+.card:hover .delete-card {
+  display: block;
+  background: black;
+}

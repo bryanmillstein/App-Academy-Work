@@ -1,0 +1,27 @@
+<% verb = @goal.persisted? ? 'patch' : 'post' %>
+<% action = @goal.persisted? ? goal_url(@goal) : goals_url %>
+
+<form action="<%= action %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="<%= verb %>">
+
+  <label>Title
+  <input type="text" name="goal[title]" value="<%= @goal.title %>">
+  </label>
+
+  <label>Notes
+  <textarea name="goal[notes]"><%= @goal.notes %></textarea>
+  </label>
+
+  <label for="goal_privacy">
+  <input type="radio" name="goal[privacy]" value="Private"
+    <%= "checked" if @goal.privacy == "Private" %> >
+     Private</label>
+  <br>
+  <label for="goal_privacy">
+  <input type="radio" name="goal[privacy]" value="Public"
+      <%= "checked" if @goal.privacy == "Public" %> >
+     Public</label>
+
+  <button>Let's do it</button>
+</form>

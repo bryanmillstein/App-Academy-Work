@@ -1,0 +1,25 @@
+<button class="follow-toggle"
+        data-user-id="<%= user.id %>"
+        data-follow-state="<%= current_user.follows?(user) %>"
+        data-follow-url="<%= user_follow_url(user) %>">
+
+</button>
+
+<script>
+
+$(document).ready(function(){
+
+  $.fn.followToggle = function (options) {
+    return this.each(function () {
+      new $.FollowToggle(this, options);
+    });
+  };
+
+  $(function () {
+    $("button.follow-toggle").followToggle();
+  });
+
+});
+
+
+</script>

@@ -1,0 +1,109 @@
+
+ul, li, body, h1 {
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  text-decoration: inherit;
+  font: inherit;
+  background: transparent;
+  border: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+/* GAME */
+
+    .hanoi {
+      background: url("mountain.jpg");
+      height: 500px;
+      width: 100%;
+      margin: 100px auto;
+      background-size: cover;
+
+    }
+
+    .hanoi li {
+      float: left;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .hanoi li:before {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 100px;
+      bottom: 0;
+      width: 70px;
+      background: #944B0E;
+      transform: translateX(-50%);
+      left: 50%;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+    }
+
+    .pole {
+      height: 500px;
+      width: calc(100% / 3 - 40px / 3 );
+    }
+
+    .pole:nth-child(2) {
+      margin: 0 20px
+    }
+
+
+    .disks {
+
+    }
+
+    .disks li:first-child {
+      bottom: 10px;
+    }
+
+    .disks li:nth-child(2) {
+      bottom: 100px;
+    }
+
+    .disks li:nth-child(3) {
+      bottom: 190px;
+    }
+
+    .disks li {
+      position: absolute;
+      display: block;
+      margin: auto;
+      border-radius: 25px;
+    }
+
+    .small {
+      background: red;
+      height: 75px;
+      width: 50%;
+      left: 25%;
+    }
+
+    .medium {
+      background: blue;
+      height: 75px;
+      width: 70%;
+      left: 15%;
+    }
+
+    .large {
+      background: green;
+      height: 75px;
+      width: 90%;
+      left: 5%;
+    }
+
+    .clicked {
+      background: yellow;
+    }

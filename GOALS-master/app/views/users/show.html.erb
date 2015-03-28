@@ -1,0 +1,29 @@
+Si Vous Plait Croissant Arc Du Triumph Champs Elysee
+<br>
+<br>
+
+<%= @user.id == current_user.id ? "~~Mah Profile~~" : @user.username  %>
+
+<br>
+
+<form action="<%= new_goal_url %>" method="get">
+  <%= auth_token %>
+  <button>Get Rockin'</button>
+</form>
+
+<br>
+
+<% @goals.each do |goal| %>
+  <br>
+  <a href="<%= goal_url(goal) %>"><%= goal.title %></a>
+  <br>
+  <em><%= time_ago_in_words(goal.created_at) %>Ago</em>
+  <br>
+  <% if goal.user == current_user %>
+  <form action="<%= goal_url(goal) %>" method="post">
+    <%= auth_token %>
+    <input type="hidden" name="_method" value="delete">
+    <button>Delete</button>
+  </form>
+  <% end %>
+<% end %>

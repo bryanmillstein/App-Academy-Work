@@ -1,0 +1,19 @@
+<form action="<%= user_url(current_user) %>" method="get">
+  <%= auth_token %>
+  <button>Mah Profile</button>
+</form>
+
+<% @goals.each do |goal| %>
+
+<a href="<%= goal_url(goal) %>"><%= goal.title %></a>
+<br>
+<em><a href="<%= user_url(goal.user) %>"><%= goal.user.username %></a> -
+    <%= time_ago_in_words(goal.created_at) %>Ago</em>
+    <% if goal.user == current_user %>
+    <form action="<%= goal_url(goal) %>" method="post">
+      <%= auth_token %>
+      <input type="hidden" name="_method" value="delete">
+      <button>Delete</button>
+    </form>
+    <% end %>
+<% end %>

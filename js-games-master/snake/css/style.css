@@ -1,0 +1,40 @@
+ul, li, body, h1 {
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  text-decoration: inherit;
+  font: inherit;
+  background: transparent;
+  border: 0;
+}
+
+ul {
+  list-style: none;
+  border: 2px solid black;
+}
+
+.group:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+
+.snake {
+  width: 800px;
+  margin: 30px auto;
+}
+
+.snake li {
+  display: block;
+  height: 36px;
+  width: 36px;
+  border: 2px solid black;
+  float: left;
+
+}
+
+.snake .segment {
+  background: black;
+  border: 2px solid yellow;
+}

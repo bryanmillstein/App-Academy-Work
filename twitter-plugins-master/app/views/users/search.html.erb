@@ -1,0 +1,31 @@
+<h1>Search!</h1>
+
+<figure class="user-search">
+  <label>Username
+    <input type="text" class="search-bar">
+  </label>
+
+  <ul class="users-list"></ul>
+
+</figure>
+
+
+<script>
+
+  $(document).ready(function() {
+
+    $.fn.userSearch = function () {
+      return this.each(function () {
+        new $.UserSearch(this);
+      });
+    };
+
+    $(function () {
+      $("figure.user-search").userSearch();
+    });
+
+  });
+
+
+
+</script>

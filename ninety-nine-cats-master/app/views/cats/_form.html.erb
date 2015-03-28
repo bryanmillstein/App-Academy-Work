@@ -1,0 +1,48 @@
+<% action_url = @cat.persisted? ? cat_url(@cat) : cats_url %>
+<% action_name = @cat.persisted? ? "Update" : "Create" %>
+<% method_name = @cat.persisted? ? "PATCH" : "POST" %>
+
+<h2>Cat <%= action_name %> Form</h2>
+
+<% @cat.errors.full_messages.each do |error| %>
+  <li><%= error %></li>
+<% end %>
+
+<form action="<%= action_url %>" method="POST">
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value=<%= method_name %>>
+  <label for="name">Name:</label>
+  <input type="text" name="cat[name]" id="name" value="<%= @cat.name %>">
+  <br>
+
+  <label for="birth_date">Birth Date:</label>
+  <input type="date" name="cat[birth_date]"
+    id="birth_date" value="<%= @cat.birth_date %>">
+  <br>
+
+  <label for="color">Color:</label>
+  <select name="cat[color]" id="color">
+    <option value="Black" <%= "selected" if @cat.color == "Black" %>>Black</option>
+    <option value="White" <%= "selected" if @cat.color == "White" %>>White</option>
+    <option value="Brown" <%= "selected" if @cat.color == "Brown" %>>Brown</option>
+    <option value="Orange"<%= "selected" if @cat.color == "Orange" %>>Orange</option>
+  </select>
+  <br>
+
+  <label for="sex">Sex:</label>
+  <input type="radio" name="cat[sex]" id="male" value="M" <%= "checked=\"checked\"" if @cat.sex == "M" %>>
+  <label for="male">Male</label>
+
+  <input type="radio" name="cat[sex]" id="female" value="F" <%= "checked=\"checked\"" if @cat.sex == "F" %>>
+  <label for="female">Female</label>
+  <br>
+
+  <label for="description">Description:</label>
+  <textarea name="cat[description]" id="description"><%= @cat.description %></textarea>
+  <br>
+
+  <button name="submit"><%= action_name %> Cat!</button>
+
+</form>

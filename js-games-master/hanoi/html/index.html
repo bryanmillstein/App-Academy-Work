@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hanoi</title>
+  <link rel="stylesheet" type="text/css" href="../css/style.css"
+  <style>
+
+
+  </style>
+
+</head>
+
+<body>
+
+
+<article class="hanoi group" >
+
+  <ul>
+    <li class="pole" data-pos="0">
+      <ul class="disks">
+        <li class="large"></li>
+        <li class="medium"></li>
+        <li class="small"></li>
+      </ul>
+    </li>
+
+    <li class="pole" data-pos="1">
+      <ul class="disks"></ul>
+    </li>
+
+    <li class="pole" data-pos="2">
+      <ul class="disks"></ul>
+    </li>
+  </ul>
+
+</article>
+
+
+
+
+
+  <script src="../js/jquery-2.1.1.js"></script>
+  <script src="../js/hanoi-core.js"></script>
+  <script src="../js/view.js"></script>
+  <script>$(document).ready( function () {
+    var view = new Hanoi.View(new Hanoi.Game, $(".hanoi"))
+  })
+    </script>
+</body>
+</html>
